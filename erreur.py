@@ -75,5 +75,13 @@ def rs(func):
 		except KeyError:
 			return func(*args)
 	return supper
+
+def rl(func):
+	def supper(*args,**ag):
+		try:
+			return [ resultI(func(*args),erreur(func,args,ag['er'])), resultI(erreur(func,args,ag['er']),erreur(func,args,ag['er']))]
+		except KeyError:
+			return func(*args)
+	return supper
 n=0
 M=0
