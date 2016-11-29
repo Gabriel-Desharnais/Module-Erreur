@@ -19,6 +19,10 @@ def result(n,e):            #fonction de formatage de sortie
 		re=str(n)
 	return re
 	
+def resultI(n,e):
+	ordre = int(np.floor(np.log10(e)))
+	re = np.around(n,-ordre)
+	return re
 def rotate(l,n):            #fonction pour rotater une liste
 	return l[n:]+l[:n]
 
@@ -43,7 +47,18 @@ def erreur(fonction,arguments,erreurs):
 	return err(wrap,arguments,erreurs)
 def error(func):
 	def supper(*args,**ag):
-		return erreur(func,args,ag['er'])
+		try:
+			return erreur(func,args,ag['er'])
+		except KeyError:
+			return func(*args)
+	return supper
+
+def e(func):
+	def supper(*args,**ag):
+		try:
+			return resultI(erreur(func,args,ag['er']),erreur(func,args,ag['er']))
+		except KeyError:
+			return func(*args)
 	return supper
 n=0
 M=0
