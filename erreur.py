@@ -91,5 +91,13 @@ def rls(func):
 		except KeyError:
 			return func(*args)
 	return supper
+
+def resultatl(func):
+	def supper(*args,**ag):
+		try:
+			return [func(*args),erreur(func,args,ag['er'])]
+		except KeyError:
+			return func(*args)
+	return supper
 n=0
 M=0
