@@ -99,5 +99,12 @@ def resultatl(func):
 		except KeyError:
 			return func(*args)
 	return supper
+def rs(func):
+	def supper(*args,**ag):
+		try:
+			return '$'+str( resultI(func(*args),erreur(func,args,ag['er'])))+'\pm'+str( resultI(erreur(func,args,ag['er']),erreur(func,args,ag['er'])))+'$'
+		except KeyError:
+			return func(*args)
+	return supper
 n=0
 M=0
