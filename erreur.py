@@ -99,7 +99,7 @@ def resultatl(func):
 		except KeyError:
 			return func(*args)
 	return supper
-def rs(func):
+def rst(func):
 	def supper(*args,**ag):
 		try:
 			return '$'+str( resultI(func(*args),erreur(func,args,ag['er'])))+'\pm'+str( resultI(erreur(func,args,ag['er']),erreur(func,args,ag['er'])))+'$'
